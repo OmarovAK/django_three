@@ -1,0 +1,23 @@
+{% extends 'phones/base.html' %}
+
+
+{% block main %}
+
+
+<div class="container">
+    <div class="row mb-3">
+        <h1 class="text-success">Каталог</h1>
+    </div>
+    <div class="row">
+        {% for book in books %}
+        <div class="col-sm-4 mb-5">
+            <h2 class="text-primary">{{book.name}}</h2>
+            <p>Автор: {{book.author}}</p>
+            <a href="{{book.get_absolute_url}}">Дата публикации: {{book.date_pub}}</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock main %}
+

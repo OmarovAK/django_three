@@ -1,0 +1,15 @@
+{% extends 'phones/base.html' %}
+
+
+{% block main %}
+
+
+<div class="container">
+    <ul class="list-group">
+          <li class="list-group-item"><a href="{% url 'phones:list_phones' %}">Каталог телефонов</a></li>
+          <li class="list-group-item"><a href="{% url 'library:list_books' %}">Библиотека</a></li>
+
+    </ul>
+</div>
+{% endblock main %}
+

@@ -1,0 +1,40 @@
+{% extends 'phones/base.html' %}
+
+
+{% block main %}
+
+
+<div class="container">
+    <div class="row mb-3">
+        <h1 class="text-success">Каталог</h1>
+    </div>
+    <div class="row">
+        {% for book in books %}
+        <div class="col-sm-4 mb-5">
+            <h2 class="text-primary">{{book.name}}</h2>
+            <p>Автор: {{book.author}}</p>
+            <p>Дата публикации: {{book.date_pub}}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-sm-4">
+            {% if prev_date %}
+            <p><a href="{% url 'library:list_books'%}{{prev_date.year}}-{{prev_date.month}}-{{prev_date.day}}">{{prev_date}}</a></p>
+            {% endif %}
+        </div>
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
+            {% if next_date %}
+            <p><a href="{% url 'library:list_books'%}{{next_date.year}}-{{next_date.month}}-{{next_date.day}}">{{next_date}}</a></p>
+            {% endif %}
+        </div>
+
+
+    </div>
+</div>
+
+{% endblock main %}
+

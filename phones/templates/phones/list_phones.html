@@ -1,0 +1,27 @@
+{% extends 'phones/base.html' %}
+
+
+{% block main %}
+
+
+<div class="container">
+    <ul class="list-group list-group-horizontal">
+          <li class="list-group-item"><a href="{% url 'phones:list_phones' %}?sort=name">Сортировка по названию</a></li>
+          <li class="list-group-item"><a href="{% url 'phones:list_phones' %}?sort=min_price">Сортировка по возрастанию цены</a></li>
+          <li class="list-group-item"><a href="{% url 'phones:list_phones' %}?sort=max_price">Сортировка по уменьшению цены</a></li>
+    </ul>
+  <div class="row">
+   {% for phone in phones %}
+    <div class="col-sm" >
+    <h2>{{phone.name}}</h2>
+    <p>Стоимость: {{phone.price}} руб.</p>
+    <img class="img-fluid" src="{{phone.image}}" style="max-height:500px ">
+     <br>
+     <a href="{{phone.get_absolute_url}}">Подробнее</a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock main %}
+

@@ -1,0 +1,26 @@
+{% extends 'phones/base.html' %}
+
+
+{% block main %}
+<div class="container">
+  <div class="row">
+      <div class="col-sm-6" >
+          <h1>{{phone.name}}</h1>
+          <p>Стоимость: {{phone.price}} руб.</p>
+          <p>Дата выхода: {{phone.release_date}}</p>
+
+      </div>
+      <div class="col-sm-6" >
+          <img class="img-fluid" src="{{phone.image}}" style="max-height:500px ">
+      </div>
+   <div class="row">
+       <div class="col-sm">
+           <a href="{% url 'phones:list_phones' %}">Назад</a>
+       </div>
+   </div>
+
+  </div>
+</div>
+
+{% endblock main %}
+
